@@ -21,7 +21,7 @@ function App() {
 
     try {
       // This is where the POST request is made
-      const response = await axios.post("http://localhost:5000/upload", formData, {
+      const response = await axios.post("https://pdf-extractorai-1.onrender.com/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       
