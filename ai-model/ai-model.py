@@ -53,7 +53,6 @@ def process_pdf():
         if "pdf" not in request.files:
             return jsonify({"success": False, "message": "No PDF file uploaded"}), 400
 
-        # Get the file from the request
         pdf_file = request.files["pdf"]
         pdf_path = f"temp_{pdf_file.filename}"
         pdf_file.save(pdf_path)
@@ -74,4 +73,4 @@ def process_pdf():
         return jsonify({"success": False, "message": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    app.run(host="0.0.0.0",port=5001, debug=True)
