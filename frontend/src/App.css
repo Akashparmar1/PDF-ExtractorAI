@@ -1,0 +1,109 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #5a3480, hwb(264 33% 34%));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.app {
+  width: 200%;
+  max-width: 600px;
+  padding: 60px;
+  border-radius: 70px;
+  background: hsl(213, 36%, 42%);
+  box-shadow: 0 40px 30px hsla(260, 21%, 95%, 0.2);
+  text-align: center;
+}
+
+.container {
+  margin: 20px;
+}
+
+h1 {
+  color: #d6f6e1;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.upload-btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: none;
+  background-color: #020124;
+  color: rgb(254, 253, 253);
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.upload-btn input[type="file"] {
+  display: none;
+}
+
+.upload-btn:hover {
+  background-color: #2d537b;
+}
+
+.form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #1a0331;
+  border-radius: 7px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+input:read-only,
+textarea:read-only {
+  background: #f9f9f9;
+}
+
+input[placeholder="Extracted Name"] {
+  background-color: #f8f1f1 !important;
+}
+
+input[placeholder="Extracted Phone Number"] {
+  background-color: #f0f8f1 !important;
+}
+
+textarea[placeholder="Extracted Address"] {
+  background-color: #f1f1f8 !important;
+}
+
+input[placeholder="Extracted Designation"] {
+  background-color: #f8f8f1 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
