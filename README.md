@@ -1,4 +1,4 @@
-# PDF Data Extractor: AI-Powered Fullstack Application
+# PDF ExtractorAI: AI-Powered Fullstack Application
 
 ## **Overview**
 This project is a fullstack application that extracts specific details (e.g., Name, Phone Number, Address, and Role) from a PDF document using AI and automatically populates these details in a frontend form. The system showcases the integration of PDF parsing, natural language processing (NLP), and a lightweight API backend, combined with a user-friendly React frontend.
@@ -53,26 +53,23 @@ cd <repository_name>
    ```
 3. Start the Node.js server:
    ```bash
-   npm start
+   node server.js
    ```
 
 ### **3. Set Up the AI Model (Flask Backend)**
 1. Navigate to the AI folder:
    ```bash
-   cd ai-backend
+   cd ai-model.py
+
    ```
-2. Create a Python virtual environment and activate it:
+
+2. Install dependencies:
    ```bash
-   python -m venv venv
-   source venv/bin/activate # On Windows: venv\Scripts\activate
+   pip install flask pdfplumber
    ```
-3. Install dependencies:
+3. Start the Flask server:
    ```bash
-   pip install -r requirements.txt
-   ```
-4. Start the Flask server:
-   ```bash
-   python app.py
+   python python ai-model.py
    ```
 
 ### **4. Set Up the Frontend**
@@ -86,7 +83,7 @@ cd <repository_name>
    ```
 3. Start the React development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ---
@@ -132,34 +129,14 @@ project_root/
 
 ## **Deployment**
 The project can be deployed using services like:
-- **Frontend**: Vercel or Netlify
-- **Backend**: Render or Heroku
-- **AI Backend**: PythonAnywhere or AWS Lambda
+- **Frontend**: Vercel 
+- **Backend**: Render 
+- **AI Backend**: Render 
 
 ---
 
-## **Contributing**
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes and push to the branch:
-   ```bash
-   git add .
-   git commit -m "Add feature"
-   git push origin feature-name
-   ```
-4. Open a pull request.
 
----
 
-## **License**
-This project is licensed under the MIT License.
 
----
-
-## **Contact**
-For any queries, contact [Your Name] at [your.email@example.com].
 
 
