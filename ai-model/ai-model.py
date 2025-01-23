@@ -9,11 +9,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Function to extract details from PDF text
 def extract_details(text):
-    # Print text for debugging
+    
     print("Extracted Text:\n", text)
 
     # Regex for Phone Number (supports various formats)
-    phone_regex =r"\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?"
+    phone_regex = r"\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?"
     phone_match = re.search(phone_regex, text)
     phone = phone_match.group() if phone_match else None
     print("Extracted Phone:", phone)  # Debugging
@@ -53,6 +53,7 @@ def process_pdf():
         if "pdf" not in request.files:
             return jsonify({"success": False, "message": "No PDF file uploaded"}), 400
 
+        # Get the file from the request
         pdf_file = request.files["pdf"]
         pdf_path = f"temp_{pdf_file.filename}"
         pdf_file.save(pdf_path)
@@ -63,7 +64,6 @@ def process_pdf():
         # Extract details from text
         details = extract_details(text)
 
-        # Cleanup the temporary file
         os.remove(pdf_path)
 
         return jsonify({"success": True, "data": details}), 200
@@ -73,4 +73,4 @@ def process_pdf():
         return jsonify({"success": False, "message": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=5001, debug=True)
+    app.run(host="0.0.0.0" ,port=5001, debug=True)
