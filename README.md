@@ -123,7 +123,7 @@ project_root/
 
 ## **Demo**
 - **PDF Example**: [Download Example PDF](https://drive.google.com/file/d/1WTCFX4gTCwLNfsiWQyxLWyVdABQ3ko7T/view?usp=sharing)
-- **Demo Video**: [Video Link](#)
+- **Demo Video**: [Video Link](https://drive.google.com/file/d/1ZyUy79my9W6nUym12kCWJn9ODOMd11u4/view?usp=drive_link)
 
 ---
 
