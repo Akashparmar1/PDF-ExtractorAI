@@ -7,30 +7,30 @@ app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Function to extract details from PDF text
+
 def extract_details(text):
     
     print("Extracted Text:\n", text)
 
-    # Regex for Phone Number (supports various formats)
-    phone_regex = r"\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?"
+    # Regex for Phone Number 
+    phone_regex = r"\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?\+?\(?\d{1,4}\)?\d{1,4}[-.\s]?\(?\d{1,5}\)?[-.\s]?\d{1,5}[-.\s]?\d{1,5}(?:[-.\s]?\d{1,5})*"
     phone_match = re.search(phone_regex, text)
     phone = phone_match.group() if phone_match else None
     print("Extracted Phone:", phone)  # Debugging
 
-    # Regex for Name (accounts for "Name :" with spaces or colons)
+    # Regex for Name 
     name_regex = r"Name\s*:\s*([A-Za-z ]+)"
     name_match = re.search(name_regex, text)
     name = name_match.group(1).strip() if name_match else None
     print("Extracted Name:", name)  # Debugging
 
-    # Regex for Address (accounts for "Address :" and line breaks)
+    # Regex for Address
     address_regex = r"Address\s*:\s*(.+)"
     address_match = re.search(address_regex, text)
     address = address_match.group(1).strip() if address_match else None
     print("Extracted Address:", address)  # Debugging
 
-    # Regex for Role (accounts for "Role :" and possible line breaks)
+    # Regex for Role 
     role_regex = r"Role\s*:\s*(.+)"
     role_match = re.search(role_regex, text)
     role = role_match.group(1).strip() if role_match else None
